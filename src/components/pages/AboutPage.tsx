@@ -30,7 +30,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden mt-20">
         <div className="absolute inset-0 z-0">
@@ -58,7 +57,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Project Introduction */}
       <section className="w-full py-20 bg-background">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -126,7 +124,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Mission Statement */}
       <section className="w-full py-20 bg-forest-green text-white">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -149,7 +146,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Team Members */}
       <section className="w-full py-20 bg-background">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -160,9 +156,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="font-heading text-4xl md:text-6xl text-foreground mb-6">
-              Meet Our Team
-            </h2>
+
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               The passionate students behind Haven Explorer
             </p>
@@ -185,12 +179,7 @@ export default function AboutPage() {
                     className="bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300"
                   >
                     <div className="relative h-80 overflow-hidden">
-                      <Image
-                        src={member.image || 'https://static.wixstatic.com/media/1d4ec0_9665a55f085146389f4b3292530e6e11~mv2.png?originWidth=256&originHeight=384'}
-                        alt={member.name || 'Team member'}
-                        className="w-full h-full object-cover"
-                        width={300}
-                      />
+
                     </div>
                     <div className="p-6">
                       <h3 className="font-heading text-2xl text-foreground mb-2">
@@ -223,7 +212,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Supervisor Section */}
       <section className="w-full py-20 bg-beige">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -249,7 +237,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Competitive Advantage */}
       <section className="w-full py-20 bg-background">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -300,7 +287,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
