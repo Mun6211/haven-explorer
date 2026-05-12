@@ -134,9 +134,7 @@ export default function Footer() {
             <p className="font-paragraph text-sm text-white/70 text-center md:text-left">
               © {new Date().getFullYear()} Haven Explorer. A BIW20303 Web Design Project by UTHM Students.
             </p>
-            <p className="font-paragraph text-sm text-white/70 text-center md:text-right">
-              Supervised by Dr. Tay Xin Hui
-            </p>
+            <p className="font-paragraph text-sm text-white/70 text-center md:text-right">By Section 9 Group 1</p>
           </div>
         </div>
       </div>
