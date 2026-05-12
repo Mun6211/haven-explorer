@@ -1,31 +1,10 @@
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, Users, Lightbulb, GraduationCap } from 'lucide-react';
+import { Target, Users, Lightbulb } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BaseCrudService } from '@/integrations';
-import { TeamMembers } from '@/entities';
 
 export default function AboutPage() {
-  const [teamMembers, setTeamMembers] = useState<TeamMembers[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    loadTeamMembers();
-  }, []);
-
-  const loadTeamMembers = async () => {
-    setIsLoading(true);
-    try {
-      const result = await BaseCrudService.getAll<TeamMembers>('teammembers', {}, { limit: 50 });
-      setTeamMembers(result.items);
-    } catch (error) {
-      console.error('Error loading team members:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -146,97 +125,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-      {/* Team Members */}
-      <section className="w-full py-20 bg-background">
-        <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
 
-            <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
-              The passionate students behind Haven Explorer
-            </p>
-          </motion.div>
-
-          <div className="min-h-[400px]">
-            {isLoading ? null : teamMembers.length > 0 ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-              >
-                {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={member._id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                  >
-                    <div className="relative h-80 overflow-hidden">
-
-                    </div>
-                    <div className="p-6">
-                      <h3 className="font-heading text-2xl text-foreground mb-2">
-                        {member.name}
-                      </h3>
-                      <p className="font-paragraph text-base text-primary mb-3 font-medium">
-                        {member.role}
-                      </p>
-                      {member.major && (
-                        <p className="font-paragraph text-sm text-foreground/60 mb-4">
-                          {member.major}
-                        </p>
-                      )}
-                      {member.bio && (
-                        <p className="font-paragraph text-sm text-foreground/70 leading-relaxed">
-                          {member.bio}
-                        </p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            ) : (
-              <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground/60">
-                  Team information will be available soon.
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-      {/* Supervisor Section */}
-      <section className="w-full py-20 bg-beige">
-        <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary mb-6">
-              <GraduationCap className="w-10 h-10 text-white" />
-            </div>
-            <h2 className="font-heading text-3xl md:text-5xl text-foreground mb-6">
-              Project Supervisor
-            </h2>
-            <p className="font-paragraph text-2xl md:text-3xl text-primary mb-4 font-medium">
-              Dr. Tay Xin Hui
-            </p>
-            <p className="font-paragraph text-lg text-foreground/70 leading-relaxed">
-              This project is supervised by Dr. Tay Xin Hui as part of the BIW20303 Web Design course at Universiti Tun Hussein Onn Malaysia. We are grateful for the guidance and support throughout the development of Haven Explorer.
-            </p>
-          </motion.div>
-        </div>
-      </section>
       {/* Competitive Advantage */}
       <section className="w-full py-20 bg-background">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
