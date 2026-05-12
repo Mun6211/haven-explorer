@@ -244,9 +244,7 @@ export default function ContactPage() {
                       <a
                         href="mailto:info@havenexplorer.com"
                         className="font-paragraph text-sm text-foreground/70 hover:text-primary transition-colors"
-                      >
-                        info@havenexplorer.com
-                      </a>
+                      >pro@uthm.edu.my</a>
                     </div>
                   </div>
 
