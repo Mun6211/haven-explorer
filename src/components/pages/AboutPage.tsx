@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, Users, Lightbulb } from 'lucide-react';
+import { Target, Users, Lightbulb, GraduationCap } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
