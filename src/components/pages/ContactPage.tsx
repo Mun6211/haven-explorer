@@ -77,7 +77,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden mt-20">
         <div className="absolute inset-0 z-0">
@@ -105,7 +104,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Contact Form & Info Section */}
       <section className="w-full py-20 bg-background">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -263,9 +261,7 @@ export default function ContactPage() {
                       <a
                         href="tel:+60123456789"
                         className="font-paragraph text-sm text-foreground/70 hover:text-primary transition-colors"
-                      >
-                        +60 12-345 6789
-                      </a>
+                      >+607 9507000</a>
                     </div>
                   </div>
                 </div>
@@ -323,7 +319,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
       {/* Map Section */}
       <section className="w-full py-20 bg-beige">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -351,7 +346,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

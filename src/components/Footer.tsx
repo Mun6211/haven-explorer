@@ -115,18 +115,14 @@ export default function Footer() {
                 <a
                   href="mailto:info@havenexplorer.com"
                   className="font-paragraph text-base text-white/80 hover:text-white transition-colors"
-                >
-                  info@havenexplorer.com
-                </a>
+                >pro@uthm.edu.my</a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0" />
                 <a
                   href="tel:+60123456789"
                   className="font-paragraph text-base text-white/80 hover:text-white transition-colors"
-                >
-                  +60 12-345 6789
-                </a>
+                >+607 9507000</a>
               </div>
             </div>
           </div>
