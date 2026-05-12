@@ -35,6 +35,8 @@ export interface FoodRecommendations {
   /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   foodImage?: string;
   /** @wixFieldType text */
+  category?: string;
+  /** @wixFieldType text */
   shopName?: string;
   /** @wixFieldType text */
   popularDish?: string;

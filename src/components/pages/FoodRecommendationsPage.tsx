@@ -10,11 +10,22 @@ import { FoodRecommendations } from '@/entities';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
+const FOOD_CATEGORIES = [
+  'Malay Cuisine',
+  'Chinese Cuisine',
+  'Indian Cuisine',
+  'Peranakan/Nyonya Cuisine',
+  'Street Food',
+  'Regional Johor Specialties',
+  'Festive Foods'
+];
+
 export default function FoodRecommendationsPage() {
   const [foodSpots, setFoodSpots] = useState<FoodRecommendations[]>([]);
   const [filteredSpots, setFilteredSpots] = useState<FoodRecommendations[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [hasNext, setHasNext] = useState(false);
   const [skip, setSkip] = useState(0);
 
@@ -24,7 +35,7 @@ export default function FoodRecommendationsPage() {
 
   useEffect(() => {
     filterSpots();
-  }, [foodSpots, searchTerm]);
+  }, [foodSpots, searchTerm, selectedCategory]);
 
   const loadFoodSpots = async () => {
     setIsLoading(true);
@@ -41,6 +52,12 @@ export default function FoodRecommendationsPage() {
 
   const filterSpots = () => {
     let filtered = [...foodSpots];
+
+    if (selectedCategory) {
+      filtered = filtered.filter(
+        (spot) => spot.category === selectedCategory
+      );
+    }
 
     if (searchTerm) {
       filtered = filtered.filter(
@@ -91,10 +108,41 @@ export default function FoodRecommendationsPage() {
         </div>
       </section>
 
-      {/* Search Section */}
+      {/* Category & Search Section */}
       <section className="w-full py-12 bg-beige">
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="max-w-2xl mx-auto">
+          {/* Categories */}
+          <div className="mb-8">
+            <h2 className="font-heading text-2xl text-foreground mb-4">Explore by Cuisine</h2>
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={() => setSelectedCategory('')}
+                className={`px-4 py-2 font-paragraph text-sm font-medium transition-all duration-300 ${
+                  selectedCategory === ''
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-white text-foreground hover:bg-primary/10'
+                }`}
+              >
+                All Categories
+              </button>
+              {FOOD_CATEGORIES.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 font-paragraph text-sm font-medium transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-white text-foreground hover:bg-primary/10'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Search */}
+          <div className="max-w-2xl">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
               <Input
